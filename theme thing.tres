@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://default.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0470588, 0.584314, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0705882, 0.909804, 0, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 37
+border_color = Color( 0, 0, 0, 0 )
+
+[resource]
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 3 )
+TabContainer/constants/hseparation = 23
+TabContainer/fonts/font = SubResource( 2 )
+TabContainer/styles/panel = SubResource( 4 )
+TabContainer/styles/tab_bg = SubResource( 1 )
+TabContainer/styles/tab_fg = SubResource( 1 )

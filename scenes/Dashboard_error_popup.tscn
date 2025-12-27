@@ -2,7 +2,7 @@
 
 [ext_resource path="res://default.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://images/flat close button.png" type="Texture" id=2]
-[ext_resource path="res://gdscript/360 dashboard/scripts/error_popup/Dashboard_error_popup.gd" type="Script" id=3]
+[ext_resource path="res://scripts/error_popup/Dashboard_error_popup.gd" type="Script" id=3]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.351563, 0.351563, 0.351563, 1, 0.710938, 0.710938, 0.710938, 1 )

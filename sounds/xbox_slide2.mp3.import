@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/xbox_slide2.mp3-ed56e78f71f2fca67df3804bcb72439d.mp3str"
+
+[deps]
+
+source_file="res://sounds/xbox_slide2.mp3"
+dest_files=[ "res://.import/xbox_slide2.mp3-ed56e78f71f2fca67df3804bcb72439d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

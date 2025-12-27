@@ -1,21 +1,21 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://theme thing.tres" type="Theme" id=1]
-[ext_resource path="res://gdscript/360 dashboard/dashboard script.gd" type="Script" id=2]
-[ext_resource path="res://gdscript/360 dashboard/scripts/StartFocus.gd" type="Script" id=3]
-[ext_resource path="res://gdscript/360 dashboard/images/XboxSeriesX_A.png" type="Texture" id=4]
+[ext_resource path="res://dashboard script.gd" type="Script" id=2]
+[ext_resource path="res://scripts/StartFocus.gd" type="Script" id=3]
+[ext_resource path="res://images/XboxSeriesX_A.png" type="Texture" id=4]
 [ext_resource path="res://sounds/xbox_select.mp3" type="AudioStream" id=5]
 [ext_resource path="res://sounds/xbox_back.mp3" type="AudioStream" id=6]
 [ext_resource path="res://sounds/xbox_slide1.mp3" type="AudioStream" id=7]
 [ext_resource path="res://sounds/xbox_slide2.mp3" type="AudioStream" id=8]
 [ext_resource path="res://sounds/xbox_select_box.mp3" type="AudioStream" id=9]
-[ext_resource path="res://gdscript/360 dashboard/images/melty blood background.jpg" type="Texture" id=10]
+[ext_resource path="res://images/melty blood background.jpg" type="Texture" id=10]
 [ext_resource path="res://sounds/xbox_special.mp3" type="AudioStream" id=11]
-[ext_resource path="res://gdscript/360 dashboard/scripts/MiddleButton.gd" type="Script" id=12]
-[ext_resource path="res://gdscript/360 dashboard/images/XboxSeriesX_Y.png" type="Texture" id=13]
-[ext_resource path="res://gdscript/360 dashboard/images/XboxSeriesX_B.png" type="Texture" id=14]
-[ext_resource path="res://gdscript/360 dashboard/scripts/buttons/hometab/GreenButton.gd" type="Script" id=15]
-[ext_resource path="res://gdscript/360 dashboard/scenes/Dashboard_error_popup.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/MiddleButton.gd" type="Script" id=12]
+[ext_resource path="res://images/XboxSeriesX_Y.png" type="Texture" id=13]
+[ext_resource path="res://images/XboxSeriesX_B.png" type="Texture" id=14]
+[ext_resource path="res://scripts/buttons/hometab/GreenButton.gd" type="Script" id=15]
+[ext_resource path="res://scenes/Dashboard_error_popup.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0378788, 0.878788 )
@@ -310,7 +310,7 @@ script = ExtResource( 3 )
 [node name="home" type="Tabs" parent="Background/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 49.0
+margin_top = 12.0
 
 [node name="LeftContainer" type="VBoxContainer" parent="Background/TabContainer/home"]
 margin_right = 174.0
