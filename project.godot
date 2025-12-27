@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="360 -dashboard-godot- 3.5"
+config/name="Xbox 360 Dashboard"
 run/main_scene="res://dashboard scene.tscn"
 config/icon="res://icon.png"
 
