@@ -1,0 +1,553 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://theme thing.tres" type="Theme" id=1]
+[ext_resource path="res://gdscript/360 dashboard/dashboard script.gd" type="Script" id=2]
+[ext_resource path="res://gdscript/360 dashboard/scripts/StartFocus.gd" type="Script" id=3]
+[ext_resource path="res://gdscript/360 dashboard/images/XboxSeriesX_A.png" type="Texture" id=4]
+[ext_resource path="res://sounds/xbox_select.mp3" type="AudioStream" id=5]
+[ext_resource path="res://sounds/xbox_back.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sounds/xbox_slide1.mp3" type="AudioStream" id=7]
+[ext_resource path="res://sounds/xbox_slide2.mp3" type="AudioStream" id=8]
+[ext_resource path="res://sounds/xbox_select_box.mp3" type="AudioStream" id=9]
+[ext_resource path="res://gdscript/360 dashboard/images/melty blood background.jpg" type="Texture" id=10]
+[ext_resource path="res://sounds/xbox_special.mp3" type="AudioStream" id=11]
+[ext_resource path="res://gdscript/360 dashboard/scripts/MiddleButton.gd" type="Script" id=12]
+[ext_resource path="res://gdscript/360 dashboard/images/XboxSeriesX_Y.png" type="Texture" id=13]
+[ext_resource path="res://gdscript/360 dashboard/images/XboxSeriesX_B.png" type="Texture" id=14]
+[ext_resource path="res://gdscript/360 dashboard/scripts/buttons/hometab/GreenButton.gd" type="Script" id=15]
+[ext_resource path="res://gdscript/360 dashboard/scenes/Dashboard_error_popup.tscn" type="PackedScene" id=16]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0378788, 0.878788 )
+colors = PoolColorArray( 0.886719, 0.886719, 0.886719, 1, 0.484375, 0.484375, 0.484375, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 1024
+height = 600
+fill_from = Vector2( 0.557263, 0.546652 )
+fill_to = Vector2( 0.562849, 0 )
+repeat = 2
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0705882, 0.909804, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0705882, 0.909804, 0, 1 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/TabContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/TabContainer:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 74.5, 88 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Background/TabContainer:rect_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 875, 424 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Background/TabContainer:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/TabContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/TabContainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 74.5, 88 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/TabContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/TabContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/TabContainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 74.5, 88 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/TabContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade_out_special"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/TabContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/TabContainer:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 875, 424 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/TabContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Background/TabContainer:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 74.5, 88 ), Vector2( -364, -68 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "home_load"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/TabContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background/TabContainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 74.5, 286 ), Vector2( 74.5, 88 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Background/TabContainer:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 875, 424 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Background/TabContainer:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "next_tab"
+
+[node name="Dashboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+
+[node name="TabContainer" type="TabContainer" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -437.5
+margin_top = -212.0
+margin_right = 437.5
+margin_bottom = 212.0
+theme = ExtResource( 1 )
+custom_constants/label_valign_fg = 0
+custom_constants/hseparation = 0
+custom_constants/top_margin = 500
+custom_constants/side_margin = 0
+script = ExtResource( 3 )
+
+[node name="home" type="Tabs" parent="Background/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Background/TabContainer/home"]
+margin_right = 174.0
+margin_bottom = 367.0
+
+[node name="GreenButton" type="Button" parent="Background/TabContainer/home/LeftContainer"]
+margin_right = 174.0
+margin_bottom = 119.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 3 )
+script = ExtResource( 15 )
+
+[node name="GreenButton2" type="Button" parent="Background/TabContainer/home/LeftContainer"]
+margin_top = 123.0
+margin_right = 174.0
+margin_bottom = 243.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 4 )
+
+[node name="GreenButton3" type="Button" parent="Background/TabContainer/home/LeftContainer"]
+margin_top = 247.0
+margin_right = 174.0
+margin_bottom = 367.0
+focus_neighbour_right = NodePath("../../MiddleContainer/BottomContainer/GreenButton2")
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 4 )
+
+[node name="RightContainer" type="VBoxContainer" parent="Background/TabContainer/home"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -174.0
+margin_top = -183.5
+margin_bottom = 183.5
+
+[node name="GreenButton" type="Button" parent="Background/TabContainer/home/RightContainer"]
+margin_right = 174.0
+margin_bottom = 119.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="GreenButton2" type="Button" parent="Background/TabContainer/home/RightContainer"]
+margin_top = 123.0
+margin_right = 174.0
+margin_bottom = 243.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 4 )
+
+[node name="GreenButton3" type="Button" parent="Background/TabContainer/home/RightContainer"]
+margin_top = 247.0
+margin_right = 174.0
+margin_bottom = 367.0
+focus_neighbour_left = NodePath("../../MiddleContainer/BottomContainer/GreenButton3")
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 4 )
+
+[node name="MiddleContainer" type="VBoxContainer" parent="Background/TabContainer/home"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -247.5
+margin_top = -183.5
+margin_right = 246.5
+margin_bottom = 179.5
+
+[node name="MeltyBloodButton" type="TextureButton" parent="Background/TabContainer/home/MiddleContainer"]
+margin_right = 494.0
+margin_bottom = 247.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.23
+theme = ExtResource( 1 )
+texture_normal = ExtResource( 10 )
+expand = true
+script = ExtResource( 12 )
+
+[node name="Background_GameText" type="ColorRect" parent="Background/TabContainer/home/MiddleContainer/MeltyBloodButton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -247.0
+margin_top = -26.0
+margin_right = 247.0
+color = Color( 0, 0, 0, 0.32549 )
+
+[node name="GameText" type="Label" parent="Background/TabContainer/home/MiddleContainer/MeltyBloodButton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -131.5
+margin_top = -19.0
+margin_right = 131.5
+margin_bottom = -5.0
+text = "Melty Blood: Actress Again: Current Code"
+
+[node name="BottomContainer" type="HBoxContainer" parent="Background/TabContainer/home/MiddleContainer"]
+margin_top = 251.0
+margin_right = 494.0
+margin_bottom = 363.0
+size_flags_vertical = 3
+
+[node name="GreenButton2" type="Button" parent="Background/TabContainer/home/MiddleContainer/BottomContainer"]
+margin_right = 244.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.23
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="GreenButton3" type="Button" parent="Background/TabContainer/home/MiddleContainer/BottomContainer"]
+margin_left = 248.0
+margin_right = 494.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.23
+theme = ExtResource( 1 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="social" type="Tabs" parent="Background/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+
+[node name="games" type="Tabs" parent="Background/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+
+[node name="movies & tv" type="Tabs" parent="Background/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+
+[node name="music" type="Tabs" parent="Background/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+
+[node name="demo" type="Tabs" parent="Background/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 49.0
+
+[node name="SelectButton" type="TextureRect" parent="Background"]
+margin_left = 42.0
+margin_top = 539.0
+margin_right = 76.0
+margin_bottom = 573.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="Background/SelectButton"]
+margin_left = 39.0
+margin_top = 10.0
+margin_right = 79.0
+margin_bottom = 26.0
+text = "Select"
+
+[node name="SelectButton2" type="TextureRect" parent="Background"]
+margin_left = 137.0
+margin_top = 539.0
+margin_right = 171.0
+margin_bottom = 573.0
+texture = ExtResource( 14 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="Background/SelectButton2"]
+margin_left = 39.0
+margin_top = 10.0
+margin_right = 72.0
+margin_bottom = 26.0
+text = "Back
+"
+scroll_active = false
+
+[node name="SelectButton3" type="TextureRect" parent="Background"]
+margin_left = 219.0
+margin_top = 539.0
+margin_right = 253.0
+margin_bottom = 573.0
+texture = ExtResource( 13 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="Background/SelectButton3"]
+margin_left = 39.0
+margin_top = 10.0
+margin_right = 72.0
+margin_bottom = 26.0
+text = "Info
+"
+scroll_active = false
+
+[node name="ErrorPopup" parent="Background" instance=ExtResource( 16 )]
+
+[node name="Sounds" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Select" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
+
+[node name="Special" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+
+[node name="Select_box" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 9 )
+
+[node name="Back" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+volume_db = -2.364
+
+[node name="Slide1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 7 )
+
+[node name="Slide2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 6 )
+anims/fade_out_special = SubResource( 9 )
+anims/home_load = SubResource( 8 )
+anims/next_tab = SubResource( 10 )
+
+[connection signal="tab_selected" from="Background/TabContainer" to="Background/TabContainer" method="_on_TabContainer_tab_selected"]

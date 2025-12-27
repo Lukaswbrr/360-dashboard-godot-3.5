@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://default.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://images/flat close button.png" type="Texture" id=2]
+[ext_resource path="res://gdscript/360 dashboard/scripts/error_popup/Dashboard_error_popup.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.351563, 0.351563, 0.351563, 1, 0.710938, 0.710938, 0.710938, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 410
+fill_from = Vector2( 0.51257, 1 )
+fill_to = Vector2( 0.501397, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="ErrorPopup" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.00784314, 0.00784314, 0.00784314, 0.780392 )
+
+[node name="MainBackground" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.0
+margin_top = -300.0
+margin_right = 205.0
+margin_bottom = 240.0
+color = Color( 0.882353, 0.882353, 0.882353, 1 )
+
+[node name="TitleBackground" type="TextureRect" parent="MainBackground"]
+margin_right = 410.0
+margin_bottom = 64.0
+texture = SubResource( 2 )
+
+[node name="TitleText" type="RichTextLabel" parent="MainBackground/TitleBackground"]
+margin_left = 58.0
+margin_top = 14.0
+margin_right = 193.0
+margin_bottom = 61.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Demo Live"
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="MainBackground/TitleBackground"]
+margin_top = 6.0
+margin_right = 49.0
+margin_bottom = 55.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ErrorText" type="RichTextLabel" parent="MainBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -173.5
+margin_top = -172.5
+margin_right = 173.5
+margin_bottom = 172.5
+custom_colors/default_color = Color( 0.054902, 0.054902, 0.054902, 1 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Melty Blood: Actress Again: Current Code is not currently avaliable in the Demo 360.
+
+But jokes aside, if you want to truly play this game, play it on a pc."
+text = "Melty Blood: Actress Again: Current Code is not currently avaliable in the Demo 360.
+
+But jokes aside, if you want to truly play this game, play it on a pc."
+
+[node name="MarginContainer" type="VBoxContainer" parent="MainBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -205.0
+margin_top = 190.0
+margin_right = 205.0
+margin_bottom = 270.0
+
+[node name="YesButton" type="Button" parent="MainBackground/MarginContainer"]
+margin_right = 410.0
+margin_bottom = 80.0
+size_flags_vertical = 3
+action_mode = 0
+text = "Return to home"
+align = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/fade_in = SubResource( 6 )
+anims/fade_out = SubResource( 7 )
+
+[connection signal="pressed" from="MainBackground/MarginContainer/YesButton" to="." method="_on_YesButton_pressed"]
