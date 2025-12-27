@@ -32,6 +32,19 @@ DemoDashBoardGlobalVariables="*res://scripts/global_variables.gd"
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[input]
+
+next_tab={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+previous_tab={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+
 [physics]
 
 common/enable_pause_aware_picking=true
